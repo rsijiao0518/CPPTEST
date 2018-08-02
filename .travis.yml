@@ -1,7 +1,27 @@
+env:
+  global:
+   # The next declaration is the encrypted COVERITY_SCAN_TOKEN, created
+   #   via the "travis encrypt" command using the project repo's public key
+   - secure: "BhWcGa9t5XBJaYZlOdKIdPXs+jkNaUs5BZJlsfzRyomQy7QUCNF5L2PLL8g+pq5S9s8iKFw8Kn9G+lbJ+x/pIM8JshjBL7WQBkj8o59nWzusAsnLcM+Q6wqetoxcdoS4tedMr9wygfPksh+kWbLqqkdClkgVjy43w/xUjbs4a93Rg7yJpy/I2NP2e91EDPZ5pZscCMLKbehnv6iast9jCIScP0Zj+bQv5kmGruSicPOy3tedI458QVCcotmtQJIHLGIwaf56RS2CfAeFi17SODjCCUm3wXtIlNerOoBkQu26ieB7UY+w2D8/3opHjYw0Nes3rDS19ONrW9QlubMhiqTLl7+6pMtRcJ/zF5ZdU2n4blkEoru8Bo9Gmvgfa7Gf9zK/lraCSGNbvyBGxziU9+ulS7Rw3VQEWb+zfueS00T38FYXLcAJeMAFP/2OA3BoC5NQRKnwbrPKgPn5e6rSysDt/QyV2T57Oiknon8eGFLMyYrKcYHE1eqk89maME6i6ZLHpSG0Vz8/4LMKhEijnehyVuR+uT6M7rjm0+Vh4EatUOBzUO96MGcGh+DyShtuekeee1UReBMp4wvzts9DksF8uRB1I6OOriiHuEdCOoc1GzZjfpoNraBnMqqjsjKkUo2x0aZWUtvaJFZwzeWg/RV75z8jUadiy71IlpeQwF8="
+
 language: cpp
 compiler:
    - gcc
    - clang
+
+before_install:
+  - echo -n | openssl s_client -connect https://scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
+
+addons:
+  coverity_scan:
+    project:
+      name: "rsijiao0518/CPPTEST"
+      description: "first coverity with project"
+    notification_email: 490436312@qq.com
+    build_command_prepend: "./configure"
+    build_command: "make"
+    branch_pattern: coverity_scan
+
 
 script: make
 
