@@ -18,7 +18,7 @@ addons:
       name: "rsijiao0518/CPPTEST"
       description: "first coverity with project"
     notification_email: 490436312@qq.com
-    build_command_prepend: "./configure"
+    build_command_prepend: "make clean && ./configure"
     build_command: "make"
     branch_pattern: coverity_scan
 
