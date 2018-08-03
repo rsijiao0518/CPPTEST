@@ -23,5 +23,5 @@ addons:
     branch_pattern: coverity_scan
 
 
-script: ./configure && make
+script: make
 
