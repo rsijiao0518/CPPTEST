@@ -1,9 +1,6 @@
 [![Build Status](https://travis-ci.com/rsijiao0518/CPPTEST.svg?branch=master)](https://travis-ci.com/rsijiao0518/Vampire-test)
 
-<a href="https://scan.coverity.com/projects/rsijiao0518-CPPTEST">
-  <img alt="Coverity Scan Build Status"
-       src="https://scan.coverity.com/projects/16185/badge.svg"/>
-</a>
+
 
 
 # Vampire
